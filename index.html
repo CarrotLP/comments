@@ -4,11 +4,47 @@
     <title>Comments page</title>
   </head>
   <body>
+  
+        <?php
+      $comment = $public = $colour = "";
+      
+      if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $comment = htmlspecialchars($comment);
+      }
+      ?>
+      
     <center><h1>Drop something <strong>random</strong></h1></center>
-    <form action="random.php" method="POST">
-      <input type="Text" name="comment" autofocus><br>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      
+      <textarea name="comment" rows="5" cols=40" autofocus></textarea>
+      <br><br>
+      
+      Do you want your comment to be set public? <br>
+      <input type="radio" name="public" value="yes">
+      <input type="radio" name="public" value="no">
+      <br><br>
+      
+      What colour do you want your memo to be in: <br>
+      <input type="radio" name="colour" value="red">
+      <input type="radio" name="colour" value="orange">
+      <input type="radio" name="colour" value="yellow">
+      <input type="radio" name="colour" value="green">
+      <input type="radio" name="colour" value="cyan">
+      <input type="radio" name="colour" value="blue">
+      <input type="radio" name="colour" value="purple">
+      <input type="radio" name="colour" value="brown">
+      <br><br>
+      
       <input type="submit">
+      
     </form>
+    
+    <?php
+      if ($public == "yes") {
+        echo $comment;
+      }
+    ?>
+    
   </body>
 </html>
    
