@@ -1,6 +1,6 @@
 <html>
   <body>
-    <?php echo $_GET["comment"]; ?>
+    hi <?php echo $_GET["comment"]; ?>
     
   </body>
 </html>
